@@ -30,13 +30,16 @@ JSON is described best here: http://www.json.org/
 It's like XML, but fat-free. You use it to move data around, store things, or just
 generally represent your program's state.
 
-First up, how do I build?
+First up, **how do I build?**
 Add cJSON.c to your project, and put cJSON.h somewhere in the header search path.
 For example, to build the test app:
 
     gcc cJSON.c test.c -o test -lm
     ./test
-
+	
+**工程已经做了makefile，所以之前编译运行即可**
+	su make && make install
+	./test
 As a library, cJSON exists to take away as much legwork as it can, but not get in your way.
 As a point of pragmatism (i.e. ignoring the truth), I'm going to say that you can use it
 in one of two modes: Auto and Manual. Let's have a quick run-through.
@@ -66,20 +69,20 @@ Get it parsed:
     cJSON * root = cJSON_Parse(my_json_string);
 
 This is an object. We're in C. We don't have objects. But we do have structs.
-What's the framerate?
+**What's the framerate?**
 
     cJSON * format = cJSON_GetObjectItem(root,"format");
     int framerate = cJSON_GetObjectItem(format,"frame rate")->valueint;
 
-Want to change the framerate?
+**Want to change the framerate?**
 
     cJSON_GetObjectItem(format,"frame rate")->valueint = 25;
 
-Back to disk?
+**Back to disk?**
 
     char * rendered = cJSON_Print(root);
 
-Finished? Delete the root (this takes care of everything else).
+**Finished? Delete the root (this takes care of everything else).**
 
     cJSON_Delete(root);
 

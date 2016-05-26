@@ -1,0 +1,22 @@
+---- cJSON_AddItemToObject Matches (21 in 5 files) ----
+cJSON.c:void   cJSON_AddItemToObject(cJSON *object,const char *string,cJSON *item)	{if (!item) return; if (item->string) cJSON_free(item->string);item->string=cJSON_strdup(string);cJSON_AddItemToArray(object,item);}
+cJSON.c:void	cJSON_AddItemReferenceToObject(cJSON *object,const char *string,cJSON *item)	{cJSON_AddItemToObject(object,string,create_reference(item));}
+cJSON.h:extern void	cJSON_AddItemToObject(cJSON *object,const char *string,cJSON *item);
+cJSON.h:#define cJSON_AddNullToObject(object,name)		cJSON_AddItemToObject(object, name, cJSON_CreateNull())
+cJSON.h:#define cJSON_AddTrueToObject(object,name)		cJSON_AddItemToObject(object, name, cJSON_CreateTrue())
+cJSON.h:#define cJSON_AddFalseToObject(object,name)		cJSON_AddItemToObject(object, name, cJSON_CreateFalse())
+cJSON.h:#define cJSON_AddBoolToObject(object,name,b)	cJSON_AddItemToObject(object, name, cJSON_CreateBool(b))
+cJSON.h:#define cJSON_AddNumberToObject(object,name,n)	cJSON_AddItemToObject(object, name, cJSON_CreateNumber(n))
+cJSON.h:#define cJSON_AddStringToObject(object,name,s)	cJSON_AddItemToObject(object, name, cJSON_CreateString(s))
+cJSON_Utils.c:		cJSON_AddItemToObject(parent,childptr,value);
+cJSON_Utils.c:	cJSON_AddItemToObject(patch,"op",cJSON_CreateString(op));
+cJSON_Utils.c:		cJSON_AddItemToObject(patch,"path",cJSON_CreateString(newpath));
+cJSON_Utils.c:	else	cJSON_AddItemToObject(patch,"path",cJSON_CreateString(path));
+cJSON_Utils.c:	if (val) cJSON_AddItemToObject(patch,"value",cJSON_Duplicate(val,1));
+Test.c:	cJSON_AddItemToObject(root, "name", cJSON_CreateString("Jack (\"Bee\") Nimble"));
+Test.c:	cJSON_AddItemToObject(root, "format", fmt=cJSON_CreateObject());
+Test.c:	cJSON_AddItemToObject(root, "Image", img=cJSON_CreateObject());
+Test.c:	cJSON_AddItemToObject(img, "Thumbnail", thm=cJSON_CreateObject());
+Test.c:	cJSON_AddItemToObject(img,"IDs", cJSON_CreateIntArray(ids,4));
+Test_utils.c:	cJSON_AddItemToObject(object,"numbers",nums);
+Test_utils.c:		buf[0]=random[i];cJSON_AddItemToObject(sortme,buf,cJSON_CreateNumber(1));

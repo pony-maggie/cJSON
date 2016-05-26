@@ -161,6 +161,11 @@ int main (int argc, const char * argv[]) {
         "</body>\n"
         "</html>\n";
 
+	printf("text1:%s\n", text1);
+	printf("text2:%s\n", text2);
+	printf("text3:%s\n", text3);
+	printf("text4:%s\n", text4);
+
 	/* Process each json textblock by parsing, then rebuilding: */
 	doit(text1);
 	doit(text2);	
