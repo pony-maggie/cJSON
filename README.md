@@ -38,8 +38,10 @@ For example, to build the test app:
     ./test
 	
 **工程已经做了makefile，所以之前编译运行即可**
+
 	su make && make install
 	./test
+	
 As a library, cJSON exists to take away as much legwork as it can, but not get in your way.
 As a point of pragmatism (i.e. ignoring the truth), I'm going to say that you can use it
 in one of two modes: Auto and Manual. Let's have a quick run-through.
